@@ -1,0 +1,51 @@
+//initialize the pins
+
+int ir1=4;
+
+int ir2=13;
+int MA1=8;
+int MA2=9;
+int MB1=10;
+int MB2=11;
+
+void setup() {
+pinMode(ir1,INPUT);
+pinMode(ir2,INPUT);
+pinMode(MA1,OUTPUT);
+pinMode(MA2,OUTPUT);
+pinMode(MB1,OUTPUT);
+pinMode(MB2,OUTPUT);
+}
+
+void loop()
+{
+if (digitalRead(ir1)==HIGH && digitalRead(ir2)== HIGH)//forward
+{
+digitalWrite(MA1,HIGH);
+digitalWrite(MA2,LOW);
+digitalWrite(MB1,HIGH);
+digitalWrite(MB2,LOW);
+}
+
+if (digitalRead(ir1)==HIGH && digitalRead(ir2)== LOW)//right
+{
+digitalWrite(MA1,HIGH);
+digitalWrite(MA2,LOW);
+digitalWrite(MB1,LOW);
+digitalWrite(MB2,LOW);
+}
+if (digitalRead(ir1)==LOW && digitalRead(ir2)== HIGH)//left
+{
+digitalWrite(MA1,LOW);
+digitalWrite(MA2,LOW);
+digitalWrite(MB1,HIGH);
+digitalWrite(MB2,LOW);
+}
+if (digitalRead(ir1)==LOW && digitalRead(ir2)== LOW)//stop
+{
+digitalWrite(MA1,LOW);
+digitalWrite(MA2,LOW);
+digitalWrite(MB1,LOW);
+digitalWrite(MB2,LOW);
+}
+}
